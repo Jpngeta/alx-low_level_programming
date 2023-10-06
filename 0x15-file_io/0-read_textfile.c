@@ -11,21 +11,21 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-    ssize_t fd;
-    ssize_t wr;
-    ssize_t rd;
-    char *buff;
+	ssize_t fd;
+	ssize_t wr;
+	ssize_t rd;
+	char *buff;
 
-    fd = open(filename, O_RDONLY);
-    if (fd == -1)
-        return (0);
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		return (0);
 
-    buff = malloc(sizeof(char) * letters);
-    rd = read(fd, buff, letters);
-    wr = write(STDOUT_FILENO, buff, rd);
+	buff = malloc(sizeof(char) * letters);
+	rd = read(fd, buff, letters);
+	wr = write(STDOUT_FILENO, buff, rd);
 
-    free(buff);
-    close(fd);
-    return (wr);
+	free(buff);
+	close(fd);
+	return (wr);
 }
 
